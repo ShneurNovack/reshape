@@ -1,0 +1,147 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8"/>
+<meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+<title>Privacy Policy — ChabadOne Form Builder AI</title>
+<style>
+  *{margin:0;padding:0;box-sizing:border-box}
+  :root{
+    --white:#ffffff;--off:#f7f7f5;
+    --border:#e2e2de;--muted:#888884;--text:#1a1a18;
+    --sans:-apple-system,BlinkMacSystemFont,'Segoe UI',sans-serif;
+  }
+  body{font-family:var(--sans);color:var(--text);background:var(--white);line-height:1.6}
+
+  nav{
+    display:flex;align-items:center;
+    padding:1.25rem 2.5rem;border-bottom:1px solid var(--border);
+    position:sticky;top:0;background:rgba(255,255,255,0.92);
+    backdrop-filter:blur(8px);z-index:100;
+  }
+  .logo{font-size:1rem;font-weight:700;letter-spacing:-0.02em;color:var(--text)}
+
+  .content{
+    max-width:680px;
+    margin:0 auto;
+    padding:4rem 2rem 6rem;
+  }
+
+  .eyebrow{
+    font-size:0.75rem;
+    font-weight:600;
+    letter-spacing:0.08em;
+    text-transform:uppercase;
+    color:var(--muted);
+    margin-bottom:0.75rem;
+  }
+
+  h1{
+    font-size:clamp(1.75rem,4vw,2.5rem);
+    font-weight:700;
+    letter-spacing:-0.03em;
+    line-height:1.15;
+    margin-bottom:0.5rem;
+    color:var(--text);
+  }
+
+  .updated{
+    font-size:0.875rem;
+    color:var(--muted);
+    margin-bottom:3rem;
+    padding-bottom:3rem;
+    border-bottom:1px solid var(--border);
+  }
+
+  h2{
+    font-size:1rem;
+    font-weight:700;
+    letter-spacing:-0.01em;
+    margin:2.5rem 0 0.75rem;
+    color:var(--text);
+  }
+
+  p{
+    font-size:0.9375rem;
+    color:#3a3a38;
+    margin-bottom:0.75rem;
+  }
+
+  ul{
+    list-style:none;
+    margin-bottom:0.75rem;
+  }
+
+  ul li{
+    font-size:0.9375rem;
+    color:#3a3a38;
+    padding:0.5rem 0;
+    border-bottom:1px solid var(--border);
+    display:flex;
+    gap:0.75rem;
+  }
+
+  ul li:first-child{border-top:1px solid var(--border)}
+
+  ul li .service{font-weight:600;color:var(--text);min-width:160px;flex-shrink:0}
+
+  .donts li{
+    border:none;
+    padding:0.25rem 0;
+    display:list-item;
+    list-style:none;
+  }
+  .donts li::before{content:"—";margin-right:0.5rem;color:var(--muted)}
+  .donts li:first-child{border:none}
+
+  @media(max-width:480px){
+    nav{padding:1rem 1.25rem}
+    .content{padding:2.5rem 1.25rem 4rem}
+    ul li{flex-direction:column;gap:0.25rem}
+    ul li .service{min-width:unset}
+  }
+</style>
+</head>
+<body>
+
+<nav>
+  <div class="logo">Reshape</div>
+</nav>
+
+<div class="content">
+  <p class="eyebrow">Legal</p>
+  <h1>Privacy Policy</h1>
+  <p class="updated">ChabadOne Form Builder AI &nbsp;·&nbsp; Last updated May 2026</p>
+
+  <h2>Overview</h2>
+  <p>ChabadOne Form Builder AI is a Chrome extension that helps ChabadOne administrators build and edit forms using AI. We are committed to being transparent about how it handles your data.</p>
+
+  <h2>What we store</h2>
+  <p>The only data stored by this extension is your Google AI Studio API key, saved locally in your browser using Chrome's built-in storage (<code>chrome.storage.local</code>). It never leaves your device except to authenticate with Google's API.</p>
+
+  <h2>What we send to third parties</h2>
+  <ul>
+    <li>
+      <span class="service">Google Gemini API</span>
+      <span>When you send a message, your chat input and the current form's field and condition data are sent to Google's Gemini API along with your API key. This is processed by Google under their Privacy Policy.</span>
+    </li>
+    <li>
+      <span class="service">ChabadOne</span>
+      <span>When you open a publishing page, the extension calls the ChabadOne settings API to check whether the page is a form. No personal data is included in this request.</span>
+    </li>
+  </ul>
+
+  <h2>What we don't do</h2>
+  <ul class="donts">
+    <li>We do not collect, transmit, or store any personal information</li>
+    <li>We do not track usage or send analytics anywhere</li>
+    <li>We do not send any data to Reshape Labs or any other third party</li>
+    <li>Chat history exists only for the duration of your current page session and is gone when you navigate away or close the tab</li>
+  </ul>
+
+  <h2>Data retention</h2>
+  <p>Your API key remains saved locally until you clear it from the extension popup or uninstall the extension. All other data (chat history, form schema) is session-only and not persisted.</p>
+</div>
+
+</body>
+</html>

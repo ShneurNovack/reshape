@@ -1,0 +1,70 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8"/>
+<meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+<title>Reshape Labs</title>
+<style>
+  *{margin:0;padding:0;box-sizing:border-box}
+  :root{
+    --white:#ffffff;--off:#f7f7f5;
+    --border:#e2e2de;--muted:#888884;--text:#1a1a18;
+    --sans:-apple-system,BlinkMacSystemFont,'Segoe UI',sans-serif;
+  }
+  html,body{height:100%}
+  body{font-family:var(--sans);color:var(--text);background:var(--white);line-height:1.6}
+
+  nav{
+    display:flex;align-items:center;justify-content:space-between;
+    padding:1.25rem 2.5rem;border-bottom:1px solid var(--border);
+    position:sticky;top:0;background:rgba(255,255,255,0.92);
+    backdrop-filter:blur(8px);z-index:100;
+  }
+  .logo{font-size:1rem;font-weight:700;letter-spacing:-0.02em;color:var(--text)}
+  .nav-links{display:flex;flex-direction:row;gap:2rem;list-style:none}
+  .nav-links span{font-size:0.875rem;color:var(--muted)}
+
+  .hero{
+    min-height:calc(100vh - 57px);
+    display:flex;flex-direction:column;
+    justify-content:center;align-items:center;
+    text-align:center;padding:3rem 2rem;
+  }
+  h1{
+    font-size:clamp(5rem,22vw,14rem);
+    font-weight:700;line-height:1;
+    letter-spacing:-0.04em;margin-bottom:1.25rem;
+    color:var(--text);
+  }
+  .hero-tagline{
+    font-size:clamp(1rem,2.5vw,1.2rem);
+    color:var(--muted);
+    max-width:380px;
+    line-height:1.6;
+  }
+
+  @media(max-width:480px){
+    nav{padding:1rem 1.25rem}
+    .nav-links{gap:1.25rem}
+    .hero{padding:2rem 1.25rem}
+  }
+</style>
+</head>
+<body>
+
+<nav>
+  <div class="logo">Reshape</div>
+  <ul class="nav-links">
+    <li><span>Services</span></li>
+    <li><span>How it works</span></li>
+    <li><span>Contact</span></li>
+  </ul>
+</nav>
+
+<div class="hero">
+  <h1>Reshape</h1>
+  <p class="hero-tagline">The smarter way to run your business — without learning anything new.</p>
+</div>
+
+</body>
+</html>
