@@ -276,6 +276,9 @@ body.js-reveals [data-reveal].is-in,
   padding-bottom: 80px;
   overflow: hidden;
 }
+h1.hero__wordmark.is-in {
+    margin-top: 40px;
+}
 .hero__grid {
   position: absolute; inset: 0;
   background-image:
