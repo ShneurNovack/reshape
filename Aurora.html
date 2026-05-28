@@ -1,0 +1,534 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover" />
+<meta name="theme-color" content="#06070d" />
+<title>Reshape — A brand & product studio</title>
+<meta name="description" content="Reshape is a studio for patient teams. We help brands turn the corner without losing the thread — identity, product, and direction." />
+
+<link rel="preconnect" href="https://fonts.googleapis.com" />
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+<link href="https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@300;400;500;600;700&family=Inter:wght@300;400;500;600;700&family=Instrument+Serif:ital@0;1&family=JetBrains+Mono:wght@400;500&display=swap" rel="stylesheet" />
+<link rel="stylesheet" href="aurora.css" />
+
+<link rel="icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 32 32'%3E%3Cdefs%3E%3ClinearGradient id='g' x1='0%25' y1='0%25' x2='100%25' y2='100%25'%3E%3Cstop offset='0%25' stop-color='%2300e0ff'/%3E%3Cstop offset='50%25' stop-color='%239b4dff'/%3E%3Cstop offset='100%25' stop-color='%23ff4dc4'/%3E%3C/linearGradient%3E%3C/defs%3E%3Cpath d='M 4 20 C 8 6, 18 26, 28 12' stroke='url(%23g)' stroke-width='6' stroke-linecap='round' fill='none'/%3E%3C/svg%3E" />
+
+<script>
+  /* Defaults persisted by the host. Edit values here for first-load state. */
+  window.__TWEAK_DEFAULTS = /*EDITMODE-BEGIN*/{
+    "mood": "aurora",
+    "energy": "standard",
+    "stance": "grotesk"
+  }/*EDITMODE-END*/;
+</script>
+</head>
+<body>
+
+<!-- ambient cursor glow -->
+<div id="cursor-glow" aria-hidden="true"></div>
+
+<!-- NAV -->
+<header class="nav" id="nav">
+  <a class="nav__brand" href="#top" aria-label="Reshape home">
+    <svg class="nav__logo" viewBox="0 0 24 24" aria-hidden="true">
+      <defs>
+        <linearGradient id="navLogo" x1="0%" y1="0%" x2="100%" y2="100%">
+          <stop offset="0%" stop-color="#00e0ff"/>
+          <stop offset="50%" stop-color="#9b4dff"/>
+          <stop offset="100%" stop-color="#ff4dc4"/>
+        </linearGradient>
+      </defs>
+      <path d="M 3 16 C 7 4, 14 24, 21 8" stroke="url(#navLogo)" stroke-width="5" stroke-linecap="round" fill="none"/>
+    </svg>
+    <span>Reshape</span>
+  </a>
+  <nav class="nav__links" aria-label="Primary">
+    <a href="#capabilities">Studio</a>
+    <a href="#manifesto">Manifesto</a>
+    <a href="#journal">Journal</a>
+  </nav>
+  <a class="nav__cta btn btn--ghost" href="#contact">Start a project <span aria-hidden="true">↗</span></a>
+  <button class="nav__burger" id="burger" aria-label="Open menu" aria-expanded="false" aria-controls="mobile-menu">
+    <span></span><span></span>
+  </button>
+</header>
+
+<!-- mobile menu -->
+<div class="mobile-menu" id="mobile-menu" aria-hidden="true">
+  <a href="#capabilities">Studio</a>
+  <a href="#manifesto">Manifesto</a>
+  <a href="#journal">Journal</a>
+  <a class="btn btn--solid" href="#contact">Start a project ↗</a>
+</div>
+
+<main id="top">
+
+<!-- HERO -->
+<section class="hero">
+  <div class="hero__grid" aria-hidden="true"></div>
+
+  <svg class="hero__ribbon" viewBox="0 0 1440 1200" preserveAspectRatio="xMidYMid slice" aria-hidden="true">
+    <defs>
+      <linearGradient id="auroraGrad" x1="0%" y1="0%" x2="100%" y2="100%">
+        <stop offset="0%" stop-color="#00e0ff"/>
+        <stop offset="35%" stop-color="#4a6bff"/>
+        <stop offset="65%" stop-color="#9b4dff"/>
+        <stop offset="100%" stop-color="#ff4dc4"/>
+      </linearGradient>
+      <linearGradient id="auroraGrad2" x1="0%" y1="0%" x2="100%" y2="0%">
+        <stop offset="0%" stop-color="#ff4dc4"/>
+        <stop offset="50%" stop-color="#9b4dff"/>
+        <stop offset="100%" stop-color="#00e0ff"/>
+      </linearGradient>
+      <filter id="auroraGlow" x="-20%" y="-20%" width="140%" height="140%">
+        <feGaussianBlur stdDeviation="14"/>
+      </filter>
+    </defs>
+    <path class="ribbon-glow" d="M -80 720 C 240 360, 420 880, 720 520 S 1180 220, 1560 560"
+      stroke="url(#auroraGrad)" stroke-width="80" stroke-linecap="round" fill="none" opacity="0.35" filter="url(#auroraGlow)"/>
+    <path class="ribbon-main" d="M -80 720 C 240 360, 420 880, 720 520 S 1180 220, 1560 560"
+      stroke="url(#auroraGrad)" stroke-width="64" stroke-linecap="round" fill="none"/>
+    <path class="ribbon-cross" d="M 1520 420 C 1200 760, 900 340, 600 720 S 200 1040, -100 880"
+      stroke="url(#auroraGrad2)" stroke-width="44" stroke-linecap="round" fill="none" opacity="0.85"/>
+  </svg>
+
+  <div class="hero__inner">
+    <div class="eyebrow">
+      <span class="dot dot--violet" aria-hidden="true"></span>
+      <span>A studio · est. 2026</span>
+      <span class="eyebrow__sep" aria-hidden="true">·</span>
+      <span class="eyebrow__status"><span class="dot dot--green" aria-hidden="true"></span> Open for Q3</span>
+    </div>
+
+    <h1 class="hero__wordmark" data-reveal>
+      <span>Re&shy;</span>
+      <span>shape.</span>
+    </h1>
+
+    <div class="hero__bottom">
+      <p class="hero__tag">
+        Form is a verb here —<br/>
+        everything moves, bends,<br/>
+        and finds its truer line.
+      </p>
+      <div class="hero__cta">
+        <a class="btn btn--solid" href="#contact">Start a project <span aria-hidden="true">→</span></a>
+        <a class="btn btn--ghost" href="#capabilities">What we do</a>
+      </div>
+    </div>
+
+    <a class="hero__scroll" href="#manifesto" aria-label="Scroll down">
+      <span>Scroll</span>
+      <svg viewBox="0 0 12 24" width="12" height="24" aria-hidden="true">
+        <path d="M 6 2 L 6 20 M 2 16 L 6 20 L 10 16" stroke="currentColor" stroke-width="1.5" fill="none" stroke-linecap="round"/>
+      </svg>
+    </a>
+  </div>
+</section>
+
+<!-- LOGO MARQUEE -->
+<section class="marquee" aria-label="Selected clients">
+  <div class="marquee__label">Trusted by patient teams</div>
+  <div class="marquee__track">
+    <div class="marquee__row">
+      <span>Petal &amp; Co.</span>
+      <span aria-hidden="true">✦</span>
+      <span>Ladder Labs</span>
+      <span aria-hidden="true">✦</span>
+      <span>Slow Atlas</span>
+      <span aria-hidden="true">✦</span>
+      <span>Mira Pictures</span>
+      <span aria-hidden="true">✦</span>
+      <span>Halfwater</span>
+      <span aria-hidden="true">✦</span>
+      <span>Forager &amp; Sons</span>
+      <span aria-hidden="true">✦</span>
+      <span>Northbound</span>
+      <span aria-hidden="true">✦</span>
+      <span>The Long Now</span>
+      <span aria-hidden="true">✦</span>
+      <span>Riverwide</span>
+      <span aria-hidden="true">✦</span>
+    </div>
+    <div class="marquee__row" aria-hidden="true">
+      <span>Petal &amp; Co.</span>
+      <span>✦</span>
+      <span>Ladder Labs</span>
+      <span>✦</span>
+      <span>Slow Atlas</span>
+      <span>✦</span>
+      <span>Mira Pictures</span>
+      <span>✦</span>
+      <span>Halfwater</span>
+      <span>✦</span>
+      <span>Forager &amp; Sons</span>
+      <span>✦</span>
+      <span>Northbound</span>
+      <span>✦</span>
+      <span>The Long Now</span>
+      <span>✦</span>
+      <span>Riverwide</span>
+      <span>✦</span>
+    </div>
+  </div>
+</section>
+
+<!-- MANIFESTO -->
+<section class="manifesto" id="manifesto">
+  <div class="container">
+    <div class="section-head">
+      <span class="kicker"><span class="dot dot--violet"></span> 01 · Manifesto</span>
+      <h2 class="section-title" data-reveal>
+        We don't redesign. <span class="muted">We listen for what wants to move next,</span> and we move with it.
+      </h2>
+    </div>
+    <div class="manifesto__cols">
+      <p data-reveal>Most brands don't need to be rebuilt. They need to be heard — patiently, carefully — until their next shape becomes obvious. We sit with the brief, draw it relentlessly, and hand back something alive in the world.</p>
+      <p data-reveal>We work in small five-week cohorts. Four people, one decision worth getting right. No platoons. No decks for the sake of decks. Just a posture, a vocabulary, a way of being seen — and the systems to keep it growing.</p>
+    </div>
+  </div>
+</section>
+
+<!-- CAPABILITIES -->
+<section class="capabilities" id="capabilities">
+  <div class="container">
+    <div class="section-head">
+      <span class="kicker"><span class="dot dot--cyan"></span> 02 · Capabilities</span>
+      <h2 class="section-title" data-reveal>What we draw, build, and ship.</h2>
+    </div>
+
+    <div class="cap-grid">
+      <article class="cap" data-reveal>
+        <header>
+          <span class="cap__index">a / 04</span>
+          <h3>Identity</h3>
+        </header>
+        <p>Marks, type systems, and tone of voice that age into themselves. Built to travel.</p>
+        <ul class="cap__list">
+          <li>Wordmarks &amp; symbols</li>
+          <li>Type pairing &amp; custom letters</li>
+          <li>Color, motion &amp; sound</li>
+          <li>Brand guidelines</li>
+        </ul>
+        <svg class="cap__line" viewBox="0 0 200 80" aria-hidden="true">
+          <path d="M 10 50 C 50 10, 90 70, 130 30 S 180 50, 190 30" stroke="url(#auroraGrad)" stroke-width="14" stroke-linecap="round" fill="none"/>
+        </svg>
+      </article>
+
+      <article class="cap" data-reveal>
+        <header>
+          <span class="cap__index">b / 04</span>
+          <h3>Product</h3>
+        </header>
+        <p>Interfaces with a clear posture and a quiet hand. We design what scales.</p>
+        <ul class="cap__list">
+          <li>Product strategy</li>
+          <li>UI / UX design systems</li>
+          <li>Web design &amp; build</li>
+          <li>Front-end engineering</li>
+        </ul>
+        <svg class="cap__line" viewBox="0 0 200 80" aria-hidden="true">
+          <path d="M 10 30 C 40 80, 80 10, 120 50 S 170 30, 190 50" stroke="url(#auroraGrad)" stroke-width="14" stroke-linecap="round" fill="none"/>
+        </svg>
+      </article>
+
+      <article class="cap" data-reveal>
+        <header>
+          <span class="cap__index">c / 04</span>
+          <h3>Editorial</h3>
+        </header>
+        <p>Books, decks, and stories with weight. Voices arranged in rhythm and breath.</p>
+        <ul class="cap__list">
+          <li>Editorial direction</li>
+          <li>Art direction &amp; photography</li>
+          <li>Long-form content systems</li>
+          <li>Print &amp; publishing</li>
+        </ul>
+        <svg class="cap__line" viewBox="0 0 200 80" aria-hidden="true">
+          <path d="M 10 60 C 40 20, 80 70, 110 30 S 170 50, 190 40" stroke="url(#auroraGrad)" stroke-width="14" stroke-linecap="round" fill="none"/>
+        </svg>
+      </article>
+
+      <article class="cap" data-reveal>
+        <header>
+          <span class="cap__index">d / 04</span>
+          <h3>Direction</h3>
+        </header>
+        <p>An outside perspective on your next year. Quietly, then all at once.</p>
+        <ul class="cap__list">
+          <li>Brand audits &amp; strategy</li>
+          <li>Naming &amp; messaging</li>
+          <li>Creative leadership</li>
+          <li>Embedded partnerships</li>
+        </ul>
+        <svg class="cap__line" viewBox="0 0 200 80" aria-hidden="true">
+          <path d="M 10 40 C 30 70, 70 20, 100 50 S 170 30, 190 50" stroke="url(#auroraGrad)" stroke-width="14" stroke-linecap="round" fill="none"/>
+        </svg>
+      </article>
+    </div>
+  </div>
+</section>
+
+<!-- PROCESS -->
+<section class="process">
+  <div class="container">
+    <div class="section-head">
+      <span class="kicker"><span class="dot dot--cyan"></span> 03 · Process</span>
+      <h2 class="section-title" data-reveal>Three weights, one line.</h2>
+    </div>
+
+    <ol class="process__list">
+      <li class="process__step" data-reveal>
+        <div class="process__num">01</div>
+        <div class="process__body">
+          <h3>Direction</h3>
+          <p>We sit with the brief — your tensions, your audience, your unspoken assumptions — until the shape it wants reveals itself. Two weeks of looking, listening, sketching.</p>
+          <div class="process__meta"><span>Weeks 1–2</span> · <span>Discovery, audit, strategy</span></div>
+        </div>
+        <svg class="process__arc" viewBox="0 0 200 80" aria-hidden="true">
+          <path d="M 10 50 C 50 10, 90 70, 130 30 S 180 50, 190 30" stroke="url(#auroraGrad)" stroke-width="12" stroke-linecap="round" fill="none"/>
+        </svg>
+      </li>
+      <li class="process__step" data-reveal>
+        <div class="process__num">02</div>
+        <div class="process__body">
+          <h3>Discipline</h3>
+          <p>Then we draw — relentlessly — until every curve carries weight. Two weeks of making the work feel inevitable.</p>
+          <div class="process__meta"><span>Weeks 3–4</span> · <span>Design, iterate, refine</span></div>
+        </div>
+        <svg class="process__arc" viewBox="0 0 200 80" aria-hidden="true">
+          <path d="M 10 30 C 40 80, 80 10, 120 50 S 170 30, 190 50" stroke="url(#auroraGrad)" stroke-width="12" stroke-linecap="round" fill="none"/>
+        </svg>
+      </li>
+      <li class="process__step" data-reveal>
+        <div class="process__num">03</div>
+        <div class="process__body">
+          <h3>Delivery</h3>
+          <p>And then we let it go, alive in the hands of the people who use it. One week of hand-off, training, and patient launch.</p>
+          <div class="process__meta"><span>Week 5</span> · <span>Build, ship, hand over</span></div>
+        </div>
+        <svg class="process__arc" viewBox="0 0 200 80" aria-hidden="true">
+          <path d="M 10 40 C 30 70, 70 20, 100 50 S 170 30, 190 50" stroke="url(#auroraGrad)" stroke-width="12" stroke-linecap="round" fill="none"/>
+        </svg>
+      </li>
+    </ol>
+  </div>
+</section>
+
+<!-- STATS -->
+<section class="stats">
+  <div class="container">
+    <div class="stats__grid">
+      <div class="stat" data-reveal>
+        <div class="stat__num" data-count="84">0</div>
+        <div class="stat__label">brands reshaped<br/>since 2019</div>
+      </div>
+      <div class="stat" data-reveal>
+        <div class="stat__num" data-count="5">0</div>
+        <div class="stat__label">weeks from kickoff<br/>to handoff, typically</div>
+      </div>
+      <div class="stat" data-reveal>
+        <div class="stat__num" data-count="14">0</div>
+        <div class="stat__label">in the studio<br/>across 4 timezones</div>
+      </div>
+      <div class="stat" data-reveal>
+        <div class="stat__num" data-count="2">0</div>
+        <div class="stat__label">spots open<br/>for Q3 of 2026</div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- JOURNAL -->
+<section class="journal" id="journal">
+  <div class="container">
+    <div class="section-head section-head--row">
+      <div>
+        <span class="kicker"><span class="dot dot--magenta"></span> 04 · Journal</span>
+        <h2 class="section-title" data-reveal>Notes from the studio.</h2>
+      </div>
+      <a class="link" href="#">All entries →</a>
+    </div>
+    <div class="journal__grid">
+      <a class="post" href="#" data-reveal style="--from:#00e0ff;--to:#9b4dff">
+        <div class="post__cover">
+          <svg viewBox="0 0 300 200" aria-hidden="true"><path d="M 20 130 C 70 40, 160 180, 280 60" stroke="white" stroke-opacity="0.85" stroke-width="20" stroke-linecap="round" fill="none"/></svg>
+        </div>
+        <div class="post__meta">Essay · 8 min</div>
+        <h3 class="post__title">On naming things that are still becoming themselves</h3>
+        <div class="post__date">May 12, 2026</div>
+      </a>
+      <a class="post" href="#" data-reveal style="--from:#9b4dff;--to:#ff4dc4">
+        <div class="post__cover">
+          <svg viewBox="0 0 300 200" aria-hidden="true"><path d="M 20 80 C 80 160, 180 30, 280 140" stroke="white" stroke-opacity="0.85" stroke-width="20" stroke-linecap="round" fill="none"/></svg>
+        </div>
+        <div class="post__meta">Field notes · 4 min</div>
+        <h3 class="post__title">A short manifesto on soft change</h3>
+        <div class="post__date">April 02, 2026</div>
+      </a>
+      <a class="post" href="#" data-reveal style="--from:#ffaa4d;--to:#ff4dc4">
+        <div class="post__cover">
+          <svg viewBox="0 0 300 200" aria-hidden="true"><path d="M 20 100 C 100 30, 200 170, 280 100" stroke="white" stroke-opacity="0.85" stroke-width="20" stroke-linecap="round" fill="none"/></svg>
+        </div>
+        <div class="post__meta">Case study · 12 min</div>
+        <h3 class="post__title">Reshaping Petal &amp; Co. without breaking what people loved</h3>
+        <div class="post__date">March 18, 2026</div>
+      </a>
+    </div>
+  </div>
+</section>
+
+<!-- FAQ -->
+<section class="faq">
+  <div class="container">
+    <div class="section-head">
+      <span class="kicker"><span class="dot dot--cyan"></span> 05 · Often asked</span>
+      <h2 class="section-title" data-reveal>Questions, answered honestly.</h2>
+    </div>
+    <div class="faq__list" id="faq-list">
+      <details class="faq__item" data-reveal>
+        <summary>How long does a typical engagement run?<span class="faq__icon" aria-hidden="true">+</span></summary>
+        <div class="faq__body">Most identity engagements run five weeks end-to-end. Product work and embedded direction usually extends to 8–14 weeks; we'll scope honestly on the kickoff call.</div>
+      </details>
+      <details class="faq__item" data-reveal>
+        <summary>What does it cost to work with you?<span class="faq__icon" aria-hidden="true">+</span></summary>
+        <div class="faq__body">Identity sprints start at $48,000. Product engagements start at $96,000. We don't haggle, but we'll happily reshape scope to fit the right number for both of us.</div>
+      </details>
+      <details class="faq__item" data-reveal>
+        <summary>Do you work with early-stage teams?<span class="faq__icon" aria-hidden="true">+</span></summary>
+        <div class="faq__body">Often. We hold one founder slot per cohort at a reduced rate — apply by the form below and tell us your story.</div>
+      </details>
+      <details class="faq__item" data-reveal>
+        <summary>Where is the studio based?<span class="faq__icon" aria-hidden="true">+</span></summary>
+        <div class="faq__body">Brooklyn, Lisbon, and Tokyo, in that order of timezone. We work remotely with frequent in-person workshops; we'll fly out for the kickoff.</div>
+      </details>
+      <details class="faq__item" data-reveal>
+        <summary>Will you sign an NDA before we talk?<span class="faq__icon" aria-hidden="true">+</span></summary>
+        <div class="faq__body">Yes. Send one to <a href="/cdn-cgi/l/email-protection#533b363f3f3c132136203b3223367d202726373a3c"><span class="__cf_email__" data-cfemail="2c44494040436c5e495f444d5c49025f5859484543">[email&#160;protected]</span></a> with your kickoff inquiry and we'll have it signed within the day.</div>
+      </details>
+    </div>
+  </div>
+</section>
+
+<!-- CTA -->
+<section class="cta" id="contact">
+  <div class="container">
+    <div class="cta__card">
+      <svg class="cta__ribbon" viewBox="0 0 1200 200" preserveAspectRatio="none" aria-hidden="true">
+        <path d="M 0 100 C 200 0, 400 200, 600 100 S 1000 0, 1200 100" stroke="url(#auroraGrad)" stroke-width="64" stroke-linecap="round" fill="none" opacity="0.9"/>
+        <path d="M 0 140 C 240 50, 460 210, 700 120 S 1000 60, 1200 130" stroke="url(#auroraGrad2)" stroke-width="14" stroke-linecap="round" fill="none" opacity="0.7"/>
+      </svg>
+      <div class="cta__inner cta__inner--simple">
+        <span class="kicker"><span class="dot dot--violet"></span> Next</span>
+        <h2>Bring us something <span class="italic">you're stuck on.</span></h2>
+        <p>Two project slots open for Q3 2026. We respond to every inquiry within 48 hours.</p>
+        <a class="cta__email" href="/cdn-cgi/l/email-protection#4f272a2323200f3d2a3c272e3f2a613c3b3a2b2620"><span class="__cf_email__" data-cfemail="ed8588818182ad9f889e858c9d88c39e9998898482">[email&#160;protected]</span> <span aria-hidden="true">→</span></a>
+        <div class="cta__buttons">
+          <a class="btn btn--solid" href="/cdn-cgi/l/email-protection#3a525f5656557a485f49525b4a5f14494e4f5e5355">Start a project <span aria-hidden="true">→</span></a>
+          <a class="btn btn--ghost" href="#capabilities">What we do</a>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+</main>
+
+<!-- FOOTER -->
+<footer class="footer">
+  <div class="container">
+    <div class="footer__top">
+      <div class="footer__brand">
+        <svg class="footer__logo" viewBox="0 0 80 80" aria-hidden="true">
+          <path d="M 6 56 C 18 6, 50 88, 74 26" stroke="url(#auroraGrad)" stroke-width="14" stroke-linecap="round" fill="none"/>
+        </svg>
+        <div class="footer__mark">Reshape</div>
+        <p>A brand &amp; product studio for patient teams.</p>
+      </div>
+
+      <div class="footer__cols">
+        <div>
+          <div class="footer__head">Studio</div>
+          <a href="#capabilities">Capabilities</a>
+          <a href="#manifesto">Manifesto</a>
+          <a href="#journal">Journal</a>
+          <a href="#contact">Contact</a>
+        </div>
+        <div>
+          <div class="footer__head">Elsewhere</div>
+          <a href="#">Instagram</a>
+          <a href="#">Are.na</a>
+          <a href="#">LinkedIn</a>
+          <a href="#">Read.cv</a>
+        </div>
+      </div>
+    </div>
+
+    <div class="footer__bottom">
+      <div>© 2026 Reshape Studio</div>
+      <div class="footer__email"><a href="/cdn-cgi/l/email-protection#49212c252526093b2c3a2128392c673a3d3c2d2026"><span class="__cf_email__" data-cfemail="ea828f868685aa988f99828b9a8fc4999e9f8e8385">[email&#160;protected]</span></a></div>
+      <div>Brooklyn · Lisbon · Tokyo</div>
+    </div>
+  </div>
+
+  <!-- huge footer wordmark -->
+  <div class="footer__mega" aria-hidden="true">Reshape.</div>
+</footer>
+
+<!-- shared SVG defs (re-declared for inline scopes) -->
+<svg width="0" height="0" style="position:absolute" aria-hidden="true">
+  <defs>
+    <linearGradient id="auroraGrad-global" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" stop-color="#00e0ff"/>
+      <stop offset="35%" stop-color="#4a6bff"/>
+      <stop offset="65%" stop-color="#9b4dff"/>
+      <stop offset="100%" stop-color="#ff4dc4"/>
+    </linearGradient>
+  </defs>
+</svg>
+
+<script data-cfasync="false" src="/cdn-cgi/scripts/5c5dd728/cloudflare-static/email-decode.min.js"></script><script src="aurora.js" defer></script>
+<script src="tweaks.js" defer></script>
+
+<!-- TWEAKS PANEL -->
+<aside class="tw" id="tweaks-panel" hidden aria-label="Tweaks">
+  <header class="tw__head">
+    <div class="tw__drag" aria-hidden="true">
+      <span></span><span></span><span></span>
+    </div>
+    <div class="tw__title">Tweaks</div>
+    <button class="tw__close" id="tw-close" aria-label="Close tweaks">×</button>
+  </header>
+
+  <section class="tw__section">
+    <div class="tw__label">Mood</div>
+    <div class="tw__seg" role="radiogroup" data-tw="mood">
+      <button data-v="aurora" class="tw__chip"><span class="tw__sw" style="background:linear-gradient(95deg,#00e0ff,#4a6bff,#9b4dff,#ff4dc4)"></span>Aurora</button>
+      <button data-v="sundown" class="tw__chip"><span class="tw__sw" style="background:linear-gradient(95deg,#ffaa4d,#ff6b4d,#ff4d8a,#c84dff)"></span>Sundown</button>
+      <button data-v="toxic" class="tw__chip"><span class="tw__sw" style="background:linear-gradient(95deg,#4dffb1,#4ad8e0,#6f4dff,#c84dff)"></span>Toxic</button>
+      <button data-v="ember" class="tw__chip"><span class="tw__sw" style="background:linear-gradient(95deg,#ffd24d,#ff6b4d,#c8254d,#6b1a8a)"></span>Ember</button>
+    </div>
+  </section>
+
+  <section class="tw__section">
+    <div class="tw__label">Ribbon energy</div>
+    <div class="tw__seg" role="radiogroup" data-tw="energy">
+      <button data-v="calm" class="tw__chip">Calm</button>
+      <button data-v="standard" class="tw__chip">Standard</button>
+      <button data-v="wild" class="tw__chip">Wild</button>
+    </div>
+  </section>
+
+  <section class="tw__section">
+    <div class="tw__label">Type stance</div>
+    <div class="tw__seg" role="radiogroup" data-tw="stance">
+      <button data-v="grotesk" class="tw__chip">Grotesk</button>
+      <button data-v="serif" class="tw__chip">Serif</button>
+      <button data-v="mono" class="tw__chip">Mono</button>
+    </div>
+  </section>
+</aside>
+
+</body>
+</html>
