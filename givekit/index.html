@@ -1,0 +1,690 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>GiveKit by Reshape Creative</title>
+<meta name="description" content="GiveKit upgrades the ChabadOne donate page you already have: chai amounts, a smart monthly ask, returning donor memory and a checkout built for phones. Same payments, same receipts, one paste to install.">
+<meta property="og:title" content="GiveKit: a better donate page for your Chabad house">
+<meta property="og:description" content="Upgrades the ChabadOne donate page you already have. Same payments, same receipts, one paste to install.">
+<meta property="og:image" content="https://reshapecreative.com/givekit/img/after-desktop-1.jpg">
+<meta name="theme-color" content="#f6f2ec">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Inter+Tight:wght@400;500;600;700;800&family=Inter:wght@400;500;600&display=swap" rel="stylesheet">
+<link rel="icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 32 32'%3E%3Crect width='32' height='32' fill='%23680020'/%3E%3Crect x='9' y='9' width='14' height='3' fill='%23fff'/%3E%3Crect x='7' y='15' width='18' height='10' fill='none' stroke='%23fff' stroke-width='3'/%3E%3C/svg%3E">
+<style>
+:root {
+  --paper: #f6f2ec;
+  --white: #ffffff;
+  --ink: #141312;
+  --muted: #5d5853;
+  --line: #d9d2c9;
+  --line-2: #e8e2da;
+  --soft: #efe9e1;
+  --accent: #680020;
+  --accent-2: #4f0018;
+  --tint: #f4e9eb;
+  --display: "Inter Tight", system-ui, -apple-system, "Segoe UI", sans-serif;
+  --body: "Inter", system-ui, -apple-system, "Segoe UI", sans-serif;
+  --wrap: 1240px;
+  --gut: 40px;
+}
+* { box-sizing: border-box; }
+html { -webkit-text-size-adjust: 100%; scroll-behavior: smooth; }
+@media (prefers-reduced-motion: reduce) { html { scroll-behavior: auto; } *, *::before, *::after { transition: none !important; animation: none !important; } }
+body { margin: 0; background: var(--paper); color: var(--ink); font-family: var(--body); font-size: 17px; line-height: 1.6; -webkit-font-smoothing: antialiased; }
+img { display: block; max-width: 100%; height: auto; }
+[hidden] { display: none !important; }
+a { color: inherit; }
+button { font: inherit; color: inherit; cursor: pointer; }
+.wrap { max-width: var(--wrap); margin: 0 auto; padding: 0 var(--gut); }
+h1, h2, h3 { font-family: var(--display); margin: 0; letter-spacing: -0.03em; line-height: 1.02; font-weight: 800; }
+h2 { font-size: clamp(36px, 5vw, 64px); }
+h3 { font-size: 22px; letter-spacing: -0.015em; line-height: 1.2; font-weight: 700; }
+p { margin: 0; }
+.lede { font-size: clamp(18px, 1.6vw, 21px); line-height: 1.55; color: var(--muted); max-width: 40ch; }
+.btn { display: inline-flex; align-items: center; justify-content: center; gap: 10px; height: 56px; padding: 0 26px; border: 1px solid var(--accent); background: var(--accent); color: #fff; font-family: var(--display); font-size: 17px; font-weight: 700; text-decoration: none; transition: background .15s, border-color .15s, color .15s; }
+.btn:hover { background: var(--accent-2); border-color: var(--accent-2); }
+.btn-ghost { background: transparent; color: var(--ink); border-color: var(--ink); }
+.btn-ghost:hover { background: var(--ink); color: #fff; border-color: var(--ink); }
+.btn svg { flex: none; }
+:focus-visible { outline: 2px solid var(--accent); outline-offset: 3px; }
+
+/* ---------- nav ---------- */
+.nav { position: sticky; top: 0; z-index: 40; background: rgba(246, 242, 236, .94); backdrop-filter: blur(10px); -webkit-backdrop-filter: blur(10px); border-bottom: 1px solid var(--line); }
+.nav .wrap { display: flex; align-items: center; justify-content: space-between; height: 72px; gap: 24px; }
+.brand { display: flex; align-items: baseline; gap: 10px; text-decoration: none; }
+.brand-mark { align-self: center; width: 28px; height: 28px; flex: none; }
+.brand-name { font-family: var(--display); font-weight: 800; font-size: 22px; letter-spacing: -0.03em; }
+.brand-by { font-size: 13px; color: var(--muted); white-space: nowrap; }
+.nav-links { display: flex; align-items: center; gap: 30px; font-size: 15px; font-weight: 500; }
+.nav-links a { text-decoration: none; color: var(--muted); }
+.nav-links a:hover { color: var(--ink); }
+.nav-links .btn { height: 42px; padding: 0 18px; font-size: 15px; color: #fff; }
+
+/* ---------- hero ---------- */
+.hero { padding: 96px 0 0; }
+.hero-top { display: grid; grid-template-columns: minmax(0, 1.25fr) minmax(0, 1fr); gap: 64px; align-items: end; }
+.hero h1 { font-size: clamp(52px, 7.4vw, 108px); letter-spacing: -0.045em; line-height: .94; }
+.hero h1 em { font-style: normal; color: var(--accent); }
+.hero-side { display: flex; flex-direction: column; gap: 28px; padding-bottom: 8px; }
+.hero-ctas { display: flex; flex-wrap: wrap; gap: 12px; }
+.hero-proof { font-size: 14px; color: var(--muted); }
+.hero-proof a { color: var(--ink); text-underline-offset: 3px; }
+.stage { position: relative; margin-top: 80px; padding-bottom: 96px; }
+.browser { background: var(--white); border: 1px solid var(--ink); }
+.browser-bar { display: flex; align-items: center; gap: 14px; height: 40px; padding: 0 14px; border-bottom: 1px solid var(--ink); background: var(--white); }
+.browser-dots { display: flex; gap: 6px; }
+.browser-dots i { width: 10px; height: 10px; border: 1px solid var(--ink); display: block; }
+.browser-url { flex: 1; max-width: 420px; height: 24px; display: flex; align-items: center; padding: 0 10px; background: var(--soft); font-size: 12px; color: var(--muted); font-family: var(--body); }
+.browser img { width: 100%; }
+.phone { position: absolute; right: 4%; bottom: 40px; width: min(25%, 280px); background: var(--ink); padding: 10px; }
+.phone img { width: 100%; }
+
+/* ---------- strip ---------- */
+.strip { border-top: 1px solid var(--line); border-bottom: 1px solid var(--line); background: var(--white); }
+.strip .wrap { display: grid; grid-template-columns: repeat(4, minmax(0, 1fr)); }
+.strip-item { padding: 28px 24px 28px 0; display: flex; flex-direction: column; gap: 4px; }
+.strip-item + .strip-item { padding-left: 24px; border-left: 1px solid var(--line); }
+.strip-num { font-family: var(--display); font-size: 30px; font-weight: 800; letter-spacing: -0.03em; }
+.strip-txt { font-size: 15px; color: var(--muted); line-height: 1.45; }
+
+/* ---------- sections ---------- */
+.sec { padding: 128px 0; }
+.sec-head { display: grid; grid-template-columns: minmax(0, 1.1fr) minmax(0, 1fr); gap: 64px; align-items: end; margin-bottom: 64px; }
+.sec-head.single { grid-template-columns: minmax(0, 1fr); max-width: 820px; gap: 0; }
+.sec-head h2 { max-width: 14ch; }
+.sec-dark { background: var(--ink); color: #fff; }
+.sec-dark .lede { color: #b9b2aa; }
+.sec-white { background: var(--white); border-top: 1px solid var(--line); border-bottom: 1px solid var(--line); }
+
+/* ---------- before / after ---------- */
+.compare { position: relative; border: 1px solid var(--ink); background: var(--white); user-select: none; -webkit-user-select: none; touch-action: pan-y; }
+.compare img { width: 100%; }
+.compare .after { position: absolute; inset: 0; clip-path: inset(0 0 0 var(--split, 50%)); }
+.compare .after img { width: 100%; height: 100%; object-fit: cover; }
+.compare-handle { position: absolute; top: 0; bottom: 0; left: var(--split, 50%); width: 2px; margin-left: -1px; background: var(--accent); pointer-events: none; }
+.compare-knob { position: absolute; top: 50%; left: 50%; width: 48px; height: 48px; margin: -24px 0 0 -24px; background: var(--accent); color: #fff; display: flex; align-items: center; justify-content: center; }
+.compare input { position: absolute; inset: 0; width: 100%; height: 100%; margin: 0; opacity: 0; cursor: ew-resize; }
+.compare-tag { position: absolute; bottom: 16px; padding: 6px 12px; font-family: var(--display); font-size: 14px; font-weight: 700; pointer-events: none; }
+.compare-tag.l { left: 16px; background: var(--white); border: 1px solid var(--ink); }
+.compare-tag.r { right: 16px; background: var(--accent); color: #fff; border: 1px solid var(--accent); }
+.compare-note { margin-top: 18px; font-size: 14px; color: var(--muted); }
+
+/* ---------- live demo ---------- */
+.demo-grid { display: grid; grid-template-columns: minmax(0, 1fr) 480px; gap: 80px; align-items: start; }
+.demo-notes { display: flex; flex-direction: column; }
+.demo-note { padding: 26px 0; border-top: 1px solid #3a3734; display: grid; grid-template-columns: 44px minmax(0, 1fr); gap: 4px 0; }
+.demo-note:last-child { border-bottom: 1px solid #3a3734; }
+.demo-note b { font-family: var(--display); font-size: 15px; color: #8f8780; font-weight: 600; grid-row: span 2; padding-top: 3px; }
+.demo-note h3 { color: #fff; font-size: 21px; }
+.demo-note p { color: #b9b2aa; font-size: 16px; }
+.demo-note.is-on h3 { color: #ffd7df; }
+
+.card { --c: var(--accent); --c2: var(--accent-2); background: var(--white); color: #171615; padding: 36px; font-family: var(--display); position: sticky; top: 104px; }
+.card h4 { margin: 0 0 6px; font-size: 28px; font-weight: 800; letter-spacing: -0.025em; line-height: 1.1; }
+.card .sub { font-family: var(--body); font-size: 15px; color: #5f5a55; margin-bottom: 22px; line-height: 1.5; }
+.freq { display: grid; grid-template-columns: 1fr 1fr; border: 1px solid #171615; margin-bottom: 14px; }
+.freq button { height: 48px; border: 0; background: #fff; font-family: var(--display); font-size: 15px; font-weight: 600; }
+.freq button.on { background: #171615; color: #fff; }
+.presets { display: grid; grid-template-columns: repeat(3, minmax(0, 1fr)); gap: 10px; margin-bottom: 10px; }
+.presets button { height: 70px; border: 1px solid #d8d3ce; background: #fff; display: flex; flex-direction: column; align-items: center; justify-content: center; gap: 1px; transition: border-color .15s, background .15s; }
+.presets button:hover { border-color: #171615; }
+.presets button.on { background: var(--c); border-color: var(--c); color: #fff; }
+.presets .amt { font-size: 20px; font-weight: 800; letter-spacing: -0.01em; }
+.presets .lbl { font-family: var(--body); font-size: 11px; min-height: 14px; }
+.other { display: flex; align-items: center; height: 52px; border: 1px solid #d8d3ce; padding: 0 14px; gap: 6px; margin-bottom: 12px; }
+.other:focus-within { border-color: #171615; }
+.other span { font-weight: 700; color: #5f5a55; }
+.other input { flex: 1; min-width: 0; border: 0; outline: 0; font: inherit; font-size: 16px; background: transparent; }
+.round { display: flex; align-items: center; justify-content: space-between; gap: 12px; padding: 12px 14px; background: var(--tint); font-family: var(--body); font-size: 14px; margin-bottom: 12px; }
+.round button { flex: none; height: 36px; padding: 0 12px; border: 1px solid var(--c); background: #fff; color: var(--c); font-family: var(--display); font-weight: 700; font-size: 14px; }
+.round button:hover { background: var(--c); color: #fff; }
+.impact { font-family: var(--body); font-size: 14px; color: #5f5a55; min-height: 21px; margin-bottom: 16px; }
+.go { width: 100%; height: 58px; border: 0; background: var(--c); color: #fff; font-family: var(--display); font-size: 18px; font-weight: 800; display: flex; align-items: center; justify-content: center; gap: 10px; }
+.go:hover { background: var(--c2); }
+.secure { display: flex; align-items: center; gap: 8px; margin-top: 14px; font-family: var(--body); font-size: 13px; color: #5f5a55; }
+.step { transition: opacity .22s ease, transform .22s ease; }
+.step.leave { opacity: 0; transform: translateX(-24px); }
+.step.enter { opacity: 0; transform: translateX(24px); transition: none; }
+.summary { background: #f4f1ee; padding: 16px 18px; display: flex; flex-wrap: wrap; align-items: center; justify-content: space-between; gap: 10px; margin-bottom: 18px; }
+.summary .s-l { font-family: var(--body); font-size: 12px; color: #5f5a55; }
+.summary .s-a { font-size: 22px; font-weight: 800; }
+.summary .chg { border: 0; background: none; color: var(--c); font-weight: 700; font-size: 14px; padding: 0; }
+.summary .ups { flex: 1 0 100%; margin: 4px -18px -16px; padding: 12px 18px 14px; border-top: 1px solid #d8d3ce; display: flex; align-items: center; justify-content: space-between; gap: 12px; font-family: var(--body); font-size: 14px; }
+.summary .ups button { flex: none; height: 36px; padding: 0 12px; border: 1px solid var(--c); background: #fff; color: var(--c); font-family: var(--display); font-weight: 700; font-size: 14px; }
+.fake-row { display: grid; grid-template-columns: 1fr 1fr; gap: 10px; margin-bottom: 10px; }
+.fake { display: flex; flex-direction: column; gap: 4px; font-family: var(--body); font-size: 12px; font-weight: 600; }
+.fake i { display: block; height: 44px; border: 1px solid #d8d3ce; font-style: normal; font-weight: 400; font-size: 15px; padding: 11px 12px; color: #171615; }
+.tabs { display: grid; grid-template-columns: repeat(3, 1fr); border: 1px solid #d8d3ce; margin: 6px 0 14px; }
+.tabs span { height: 40px; display: flex; align-items: center; justify-content: center; font-size: 13px; font-weight: 600; }
+.tabs span + span { border-left: 1px solid #d8d3ce; }
+.tabs span.on { background: var(--c); color: #fff; }
+.demo-toast { margin-top: 12px; font-family: var(--body); font-size: 14px; background: #f4f1ee; padding: 12px 14px; }
+
+/* ---------- features ---------- */
+.feats { display: grid; grid-template-columns: repeat(3, minmax(0, 1fr)); border-top: 1px solid var(--ink); border-left: 1px solid var(--ink); }
+.feat { border-right: 1px solid var(--ink); border-bottom: 1px solid var(--ink); background: var(--paper); display: flex; flex-direction: column; }
+.feat-vis { height: 320px; display: flex; align-items: center; justify-content: center; padding: 32px; background: var(--soft); border-bottom: 1px solid var(--ink); overflow: hidden; position: relative; }
+.feat-txt { padding: 28px 30px 34px; display: flex; flex-direction: column; gap: 10px; }
+.feat-txt p { color: var(--muted); font-size: 16px; }
+.feat.wide { grid-column: span 2; }
+.feat.wide .feat-vis { height: 320px; }
+.ui { background: #fff; font-family: var(--display); color: #171615; width: 100%; max-width: 360px; }
+.ui-pad { padding: 18px; }
+.mini-presets { display: grid; grid-template-columns: repeat(3, 1fr); gap: 8px; }
+.mini-presets span { height: 62px; border: 1px solid #d8d3ce; display: flex; flex-direction: column; align-items: center; justify-content: center; font-weight: 800; font-size: 18px; background: #fff; }
+.mini-presets span small { font-family: var(--body); font-weight: 400; font-size: 10px; }
+.mini-presets span.on { background: var(--accent); color: #fff; border-color: var(--accent); }
+.shot-crop { width: 100%; height: 100%; object-fit: cover; object-position: top; border: 1px solid var(--ink); }
+.feat-vis.bleed { padding: 28px 28px 0; align-items: flex-end; }
+.bleed .shot-b { width: 74%; height: 100%; object-fit: cover; object-position: top; border: 1px solid var(--ink); border-bottom: 0; background: #fff; }
+.bleed .shot-b.bottom { object-position: bottom; }
+.swatches { position: absolute; right: 18px; top: 28px; display: flex; flex-direction: column; gap: 8px; z-index: 2; }
+.swatches button { width: 30px; height: 30px; border: 2px solid #fff; padding: 0; outline: 1px solid var(--ink); }
+.swatches button.on { outline: 3px solid var(--ink); }
+.themes { position: relative; width: 74%; height: 100%; margin-right: 22px; }
+.themes img { position: absolute; inset: 0; width: 100%; height: 100%; object-fit: cover; object-position: top; border: 1px solid var(--ink); border-bottom: 0; background: #fff; opacity: 0; transition: opacity .3s; }
+.themes img.on { opacity: 1; }
+.thanks-ui h5 { margin: 0 0 4px; font-size: 26px; font-weight: 800; letter-spacing: -0.02em; }
+.thanks-ui p { font-family: var(--body); font-size: 13px; color: #5f5a55; margin-bottom: 14px; }
+.thanks-ui .tm { border: 1px solid var(--accent); padding: 14px; display: flex; align-items: center; justify-content: space-between; gap: 10px; font-size: 14px; font-weight: 700; }
+.thanks-ui .tm span { background: var(--accent); color: #fff; padding: 8px 10px; font-size: 13px; white-space: nowrap; }
+.thanks-ui .sh { display: flex; gap: 6px; margin-top: 10px; }
+.thanks-ui .sh span { flex: 1; height: 34px; border: 1px solid #d8d3ce; display: flex; align-items: center; justify-content: center; font-size: 12px; font-weight: 600; }
+.addon-ui { display: flex; flex-direction: column; gap: 10px; }
+.addon-ui .ad { display: flex; align-items: center; gap: 12px; border: 1px solid #d8d3ce; padding: 14px; background: #fff; font-size: 14px; font-weight: 700; }
+.addon-ui .ad.on { border-color: var(--accent); background: var(--tint); }
+.addon-ui .bx { width: 20px; height: 20px; border: 1px solid #171615; flex: none; display: flex; align-items: center; justify-content: center; }
+.addon-ui .ad.on .bx { background: var(--accent); border-color: var(--accent); }
+.addon-ui .ad small { display: block; font-family: var(--body); font-weight: 400; font-size: 12px; color: #5f5a55; }
+.addon-ui .pr { margin-left: auto; font-size: 15px; }
+.ways-ui { width: 100%; max-width: 420px; background: #fff; }
+.ways-ui div { display: flex; align-items: center; justify-content: space-between; padding: 16px 18px; border-bottom: 1px solid #e6e2de; font-family: var(--display); }
+.ways-ui div:last-child { border-bottom: 0; }
+.ways-ui b { display: block; font-size: 16px; }
+.ways-ui small { font-family: var(--body); font-size: 12px; color: #5f5a55; }
+.ways-ui svg { color: var(--accent); flex: none; }
+
+/* ---------- step 2 showcase ---------- */
+.showcase { border: 1px solid var(--ink); background: var(--white); }
+
+/* ---------- compat ---------- */
+.compat { display: grid; grid-template-columns: repeat(4, minmax(0, 1fr)); gap: 0; border-top: 1px solid var(--ink); }
+.compat div { padding: 30px 28px 0 0; display: flex; flex-direction: column; gap: 10px; }
+.compat div + div { padding-left: 28px; border-left: 1px solid var(--line); }
+.compat p { color: var(--muted); font-size: 16px; }
+
+/* ---------- how ---------- */
+.steps { display: grid; grid-template-columns: repeat(3, minmax(0, 1fr)); gap: 0; counter-reset: s; }
+.stepbox { padding: 36px 36px 40px 0; border-top: 4px solid var(--ink); display: flex; flex-direction: column; gap: 14px; }
+.stepbox + .stepbox { padding-left: 36px; }
+.stepbox .n { font-family: var(--display); font-size: 64px; font-weight: 800; letter-spacing: -0.05em; line-height: 1; color: var(--accent); }
+.stepbox p { color: var(--muted); }
+.snippet { margin-top: 6px; background: var(--ink); color: #e9e3db; font-family: ui-monospace, "SF Mono", Menlo, monospace; font-size: 12.5px; line-height: 1.6; padding: 16px 18px; overflow-x: auto; white-space: pre; }
+.snippet .k { color: #ffb3c1; }
+
+/* ---------- pricing ---------- */
+.price-grid { display: grid; grid-template-columns: minmax(0, 1fr) minmax(0, 1fr); gap: 64px; align-items: start; }
+.price-card { background: var(--white); border: 1px solid var(--ink); }
+.price-top { padding: 40px 40px 32px; border-bottom: 1px solid var(--ink); }
+.price-amt { font-family: var(--display); font-size: 96px; font-weight: 800; letter-spacing: -0.06em; line-height: 1; }
+.price-amt small { font-size: 22px; letter-spacing: -0.01em; font-weight: 600; color: var(--muted); margin-left: 6px; }
+.price-sub { margin-top: 10px; color: var(--muted); }
+.price-list { list-style: none; margin: 0; padding: 28px 40px; display: flex; flex-direction: column; gap: 14px; }
+.price-list li { display: grid; grid-template-columns: 22px minmax(0, 1fr); gap: 12px; font-size: 16px; }
+.price-list svg { color: var(--accent); margin-top: 4px; }
+.price-cta { padding: 0 40px 40px; }
+.price-cta .btn { width: 100%; }
+
+/* ---------- roadmap ---------- */
+.road { display: grid; grid-template-columns: repeat(3, minmax(0, 1fr)); gap: 0; border-top: 1px solid #3a3734; }
+.road div { padding: 30px 30px 0 0; display: flex; flex-direction: column; gap: 10px; }
+.road div + div { padding-left: 30px; border-left: 1px solid #3a3734; }
+.road h3 { color: #fff; }
+.road p { color: #b9b2aa; font-size: 16px; }
+.road .soon { align-self: flex-start; font-family: var(--display); font-size: 12px; font-weight: 700; padding: 4px 8px; border: 1px solid #5a5551; color: #cfc8c0; }
+
+/* ---------- faq ---------- */
+.faq { border-top: 1px solid var(--ink); }
+.faq details { border-bottom: 1px solid var(--line); }
+.faq summary { list-style: none; cursor: pointer; display: flex; justify-content: space-between; align-items: center; gap: 24px; padding: 26px 0; font-family: var(--display); font-size: 21px; font-weight: 700; letter-spacing: -0.015em; }
+.faq summary::-webkit-details-marker { display: none; }
+.faq summary i { flex: none; width: 18px; height: 18px; position: relative; }
+.faq summary i::before, .faq summary i::after { content: ""; position: absolute; left: 0; right: 0; top: 8px; height: 2px; background: var(--ink); transition: transform .2s; }
+.faq summary i::after { transform: rotate(90deg); }
+.faq details[open] summary i::after { transform: rotate(0); }
+.faq .a { padding: 0 0 28px; color: var(--muted); max-width: 70ch; }
+
+/* ---------- final ---------- */
+.final { background: var(--accent); color: #fff; padding: 120px 0; }
+.final .wrap { display: grid; grid-template-columns: minmax(0, 1.4fr) minmax(0, 1fr); gap: 64px; align-items: end; }
+.final h2 { font-size: clamp(44px, 6.4vw, 92px); letter-spacing: -0.045em; line-height: .95; }
+.final p { color: #f1d6dc; font-size: 19px; margin-bottom: 26px; max-width: 34ch; }
+.final .btn { background: #fff; color: var(--accent); border-color: #fff; }
+.final .btn:hover { background: var(--ink); color: #fff; border-color: var(--ink); }
+.foot { padding: 36px 0 48px; font-size: 14px; color: var(--muted); }
+.foot .wrap { display: flex; flex-wrap: wrap; justify-content: space-between; gap: 12px 32px; }
+
+/* ---------- reveal ---------- */
+.rv { opacity: 0; transform: translateY(18px); transition: opacity .6s ease, transform .6s ease; }
+.rv.in { opacity: 1; transform: none; }
+.no-js .rv { opacity: 1; transform: none; }
+
+/* ---------- responsive ---------- */
+@media (max-width: 1080px) {
+  :root { --gut: 28px; }
+  .hero-top, .sec-head, .price-grid, .final .wrap { grid-template-columns: minmax(0, 1fr); gap: 32px; }
+  .demo-grid { grid-template-columns: minmax(0, 1fr); gap: 48px; }
+  .card { position: relative; top: auto; max-width: 520px; }
+  .feats { grid-template-columns: repeat(2, minmax(0, 1fr)); }
+  .feat.wide { grid-column: span 2; }
+  .compat { grid-template-columns: repeat(2, minmax(0, 1fr)); }
+  .compat div:nth-child(3) { padding-left: 0; border-left: 0; }
+  .compat div:nth-child(n+3) { padding-top: 36px; }
+}
+@media (max-width: 760px) {
+  :root { --gut: 20px; }
+  body { font-size: 16px; }
+  .nav .wrap { height: 62px; }
+  .nav-links a:not(.btn) { display: none; }
+  .brand-by { display: none; }
+  .hero { padding-top: 56px; }
+  .stage { margin-top: 48px; padding-bottom: 120px; }
+  .phone { width: 40%; right: 12px; bottom: 24px; padding: 6px; }
+  .browser-bar { height: 30px; }
+  .browser-url { display: none; }
+  .strip .wrap { grid-template-columns: repeat(2, minmax(0, 1fr)); }
+  .strip-item, .strip-item + .strip-item { padding: 22px 16px; border-left: 0; }
+  .strip-item:nth-child(even) { border-left: 1px solid var(--line); }
+  .strip-item:nth-child(n+3) { border-top: 1px solid var(--line); }
+  .strip-num { font-size: 23px; white-space: nowrap; }
+  .sec { padding: 88px 0; }
+  .sec-head { margin-bottom: 40px; }
+  .feats { grid-template-columns: minmax(0, 1fr); }
+  .feat.wide { grid-column: auto; }
+  .feat-vis, .feat.wide .feat-vis { height: 260px; padding: 22px; }
+  .card { padding: 24px 20px; }
+  .steps, .road, .compat { grid-template-columns: minmax(0, 1fr); }
+  .stepbox, .stepbox + .stepbox { padding: 28px 0 36px; }
+  .road div, .road div + div, .compat div, .compat div + div { padding: 26px 0 0; border-left: 0; }
+  .road div + div, .compat div + div { margin-top: 26px; border-top: 1px solid var(--line); }
+  .road div + div { border-top-color: #3a3734; }
+  .compat div:nth-child(n+3) { padding-top: 26px; }
+  .price-top, .price-list { padding-left: 24px; padding-right: 24px; }
+  .price-cta { padding: 0 24px 28px; }
+  .price-amt { font-size: 76px; }
+  .final { padding: 88px 0; }
+  .compare-tag { bottom: 10px; font-size: 12px; padding: 4px 8px; }
+  .compare-tag.l { left: 10px; } .compare-tag.r { right: 10px; }
+  .compare-knob { width: 40px; height: 40px; margin: -20px 0 0 -20px; }
+}
+</style>
+</head>
+<body class="no-js">
+<script>document.body.classList.remove('no-js');</script>
+
+<header class="nav">
+  <div class="wrap">
+    <a class="brand" href="#top" aria-label="GiveKit home">
+      <svg class="brand-mark" viewBox="0 0 32 32" aria-hidden="true"><rect width="32" height="32" fill="#680020"/><rect x="9" y="8" width="14" height="3" fill="#fff"/><rect x="7.5" y="14.5" width="17" height="10" fill="none" stroke="#fff" stroke-width="3"/></svg>
+      <span class="brand-name">GiveKit</span>
+      <span class="brand-by">by Reshape Creative</span>
+    </a>
+    <nav class="nav-links" aria-label="Page">
+      <a href="#demo">Try it</a>
+      <a href="#features">Features</a>
+      <a href="#how">How it works</a>
+      <a href="#pricing">Pricing</a>
+      <a class="btn" href="#get">Get GiveKit</a>
+    </nav>
+  </div>
+</header>
+
+<main id="top">
+  <section class="hero">
+    <div class="wrap">
+      <div class="hero-top">
+        <h1>A better donate page for your <em>Chabad house.</em></h1>
+        <div class="hero-side">
+          <p class="lede">GiveKit upgrades the ChabadOne donate page you already have. Chai amounts, a well-timed monthly ask, and a checkout that remembers your donors. Same payments, same receipts, installed with one paste.</p>
+          <div class="hero-ctas">
+            <a class="btn" href="#get">Get GiveKit <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="square" aria-hidden="true"><path d="M5 12h14M13 6l6 6-6 6"/></svg></a>
+            <a class="btn btn-ghost" href="#demo">Try the demo</a>
+          </div>
+          <p class="hero-proof">Running live on <a href="https://www.southsidechabad.com/4970020" target="_blank" rel="noopener">Chabad of Jacksonville Town Center</a>.</p>
+        </div>
+      </div>
+      <div class="stage rv">
+        <div class="browser">
+          <div class="browser-bar"><span class="browser-dots"><i></i><i></i><i></i></span><span class="browser-url">chabadofanytown.org/donate</span></div>
+          <img src="img/after-desktop-1.jpg" width="2400" height="1500" alt="A ChabadOne donate page with GiveKit: a photo behind a clean white panel with a once or monthly switch, six chai amounts and a large Give $180 button.">
+        </div>
+        <div class="phone"><img src="img/after-mobile-1.jpg" width="780" height="1688" alt="The same donate page on a phone."></div>
+      </div>
+    </div>
+  </section>
+
+  <section class="strip" aria-label="At a glance">
+    <div class="wrap">
+      <div class="strip-item"><span class="strip-num">1 paste</span><span class="strip-txt">One snippet in your ChabadOne header code. Nothing to migrate.</span></div>
+      <div class="strip-item"><span class="strip-num">2 steps</span><span class="strip-txt">Pick an amount, then details and payment. That's the whole flow.</span></div>
+      <div class="strip-item"><span class="strip-num">0 changes</span><span class="strip-txt">to your payments, receipts or donor records in ChabadOne.</span></div>
+      <div class="strip-item"><span class="strip-num">Every night</span><span class="strip-txt">we check your page still works, so you never find out from a donor.</span></div>
+    </div>
+  </section>
+
+  <section class="sec" id="compare">
+    <div class="wrap">
+      <div class="sec-head">
+        <h2>Same page. A lot more giving.</h2>
+        <p class="lede">Drag across to see the stock ChabadOne donate page turn into GiveKit. It's the same page at the same address, with the same form underneath.</p>
+      </div>
+      <div class="compare rv" style="--split:50%">
+        <img src="img/before-desktop.jpg" width="2400" height="1500" alt="The standard ChabadOne donate page.">
+        <div class="after"><img src="img/after-desktop-1.jpg" width="2400" height="1500" alt="" aria-hidden="true"></div>
+        <span class="compare-tag l">ChabadOne today</span>
+        <span class="compare-tag r">With GiveKit</span>
+        <div class="compare-handle"><span class="compare-knob"><svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="square" aria-hidden="true"><path d="M9 6l-6 6 6 6M15 6l6 6-6 6"/></svg></span></div>
+        <input type="range" min="0" max="100" value="50" aria-label="Compare the standard page with GiveKit">
+      </div>
+    </div>
+  </section>
+
+  <section class="sec sec-dark" id="demo">
+    <div class="wrap">
+      <div class="sec-head">
+        <h2>Try it. This is the real flow.</h2>
+        <p class="lede">Pick an amount, type an odd one, switch to monthly. Every nudge here is built to raise the gift without slowing anyone down.</p>
+      </div>
+      <div class="demo-grid">
+        <div class="demo-notes">
+          <div class="demo-note" data-note="chai"><b>01</b><h3>Amounts that speak Yiddishkeit</h3><p>Every multiple of 18 is labeled: Double chai, Ten times chai. Donors feel the meaning, not just the number.</p></div>
+          <div class="demo-note" data-note="round"><b>02</b><h3>Round up to the next chai</h3><p>Type $100 and GiveKit offers $108, six times chai. One tap, and most people take it.</p></div>
+          <div class="demo-note" data-note="monthly"><b>03</b><h3>Monthly, made simple</h3><p>Monthly has its own amounts, and the button says exactly what happens: Give $36 a month, $432 over a year.</p></div>
+          <div class="demo-note" data-note="upsell"><b>04</b><h3>A monthly ask at the right moment</h3><p>After they commit, one quiet line: make it $36 a month instead? Calculated from the gift they chose.</p></div>
+        </div>
+        <div class="card" id="demoCard" aria-live="polite">
+          <div class="step" id="s1">
+            <h4>Partner with Chabad of Anytown</h4>
+            <p class="sub">Your gift brings Shabbos dinners and holiday programs to Jewish families across Anytown.</p>
+            <div class="freq" role="group" aria-label="Frequency"><button type="button" data-f="once" class="on">Give once</button><button type="button" data-f="monthly">Monthly</button></div>
+            <div class="presets" id="presets"></div>
+            <label class="other"><span>$</span><input id="other" inputmode="decimal" placeholder="Other amount" aria-label="Other amount"></label>
+            <div class="round" id="round" hidden><span id="roundTxt"></span><button type="button" id="roundBtn">Round up</button></div>
+            <p class="impact" id="impact"></p>
+            <button type="button" class="go" id="go"><span id="goTxt">Give $180</span><svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="square" aria-hidden="true"><path d="M5 12h14M13 6l6 6-6 6"/></svg></button>
+            <p class="secure"><svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" aria-hidden="true"><rect x="5" y="11" width="14" height="10"/><path d="M8 11V7a4 4 0 0 1 8 0v4"/></svg>Secure. Credit card, PayPal or donor advised fund.</p>
+          </div>
+          <div class="step" id="s2" hidden>
+            <div class="summary"><div><div class="s-l">Your gift</div><div class="s-a" id="sumAmt">$180 once</div></div><button type="button" class="chg" id="chg">Change</button><div class="ups" id="ups"><span id="upsTxt"></span><button type="button" id="upsBtn">Switch</button></div></div>
+            <div class="fake-row"><label class="fake">First name<i>Sarah</i></label><label class="fake">Last name<i>Cohen</i></label></div>
+            <label class="fake" style="margin-bottom:10px">Email<i>sarah@example.com</i></label>
+            <div class="tabs"><span class="on">Credit card</span><span>PayPal</span><span>DAF</span></div>
+            <button type="button" class="go" id="donate"><span id="donTxt">Donate $180</span></button>
+            <p class="demo-toast" id="toast" hidden>This is a demo. On your site, this button hands off to ChabadOne's own secure checkout, exactly as it does today.</p>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <section class="sec" id="features">
+    <div class="wrap">
+      <div class="sec-head">
+        <h2>Everything a donate page should have done already.</h2>
+        <p class="lede">Built from how people actually give on their phones, and from what makes shluchim's donors come back.</p>
+      </div>
+      <div class="feats">
+        <article class="feat wide rv">
+          <div class="feat-vis" style="padding:0"><img class="shot-crop" style="border:0" src="img/after-desktop-2.jpg" width="2400" height="1667" alt="Step two of the GiveKit flow: a wide panel with the gift summary and monthly offer on top, contact details on the left and payment on the right."></div>
+          <div class="feat-txt"><h3>Two clean steps</h3><p>Step one is just the gift. Step two slides in wide, with details on the left and payment on the right, and the gift summary up top with a Change link. No wall of fields up front.</p></div>
+        </article>
+        <article class="feat rv">
+          <div class="feat-vis bleed"><img class="shot-b" src="img/welcome-panel.jpg" alt="A welcome back panel reading Welcome back, Sarah, with a button to give $180 again."></div>
+          <div class="feat-txt"><h3>Welcome back, Sarah</h3><p>Returning donors are greeted by name with a one-tap repeat of last time's gift, and their details are already filled in. Saved only on their own device.</p></div>
+        </article>
+        <article class="feat rv">
+          <div class="feat-vis bleed"><img class="shot-b bottom" src="img/resume-mobile.jpg" alt="A phone showing Pick up where you left off, with a Finish my $180 gift button."></div>
+          <div class="feat-txt"><h3>Pick up where they left off</h3><p>Interrupted halfway? Everything they typed is saved as they go. Next visit, one tap finishes the gift. Card numbers are never saved.</p></div>
+        </article>
+        <article class="feat rv">
+          <div class="feat-vis">
+            <div class="ui ui-pad addon-ui">
+              <div class="ad on"><span class="bx"><svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="#fff" stroke-width="3.5" aria-hidden="true"><path d="M5 12l5 5 9-10"/></svg></span><span>Challah for this week's Shabbos<small>Optional</small></span><span class="pr">+$18</span></div>
+              <div class="ad"><span class="bx"></span><span>Sponsor a Kiddush<small>This Shabbos</small></span><span class="pr">+$180</span></div>
+            </div>
+          </div>
+          <div class="feat-txt"><h3>Add-ons at checkout</h3><p>Offer small extras right where people are already giving. You choose them, and they're added to the gift and noted on the record.</p></div>
+        </article>
+        <article class="feat rv">
+          <div class="feat-vis">
+            <div class="ui ways-ui">
+              <div><span><b>Join the Chai Club</b><small>$18 a month keeps the lights on</small></span><svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" aria-hidden="true"><path d="M5 12h14M13 6l6 6-6 6"/></svg></div>
+              <div><span><b>Sponsor a Shabbos dinner</b><small>See which weeks are still open</small></span><svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" aria-hidden="true"><path d="M5 12h14M13 6l6 6-6 6"/></svg></div>
+              <div><span><b>Leave a living legacy</b><small>Include Chabad in your will</small></span><svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" aria-hidden="true"><path d="M5 12h14M13 6l6 6-6 6"/></svg></div>
+            </div>
+          </div>
+          <div class="feat-txt"><h3>More ways to give</h3><p>Point donors to your Chai Club, Shabbos sponsorships or planned giving, right on the donate page, so a one-time gift can turn into a relationship.</p></div>
+        </article>
+        <article class="feat rv">
+          <div class="feat-vis">
+            <div class="ui ui-pad thanks-ui">
+              <h5>Thank you, Sarah.</h5>
+              <p>Your $180 gift to Chabad of Anytown is on its way.</p>
+              <div class="tm">Make it $36 a month? <span>Give monthly</span></div>
+              <div class="sh"><span>WhatsApp</span><span>Email</span><span>Copy link</span></div>
+            </div>
+          </div>
+          <div class="feat-txt"><h3>A thank-you page that keeps going</h3><p>The receipt thanks donors by name, offers monthly giving, and makes it one tap to share your donate page with a friend.</p></div>
+        </article>
+        <article class="feat rv">
+          <div class="feat-vis bleed" id="themeVis">
+            <div class="themes">
+              <img class="on" src="img/theme-maroon.jpg" alt="The GiveKit panel in maroon." data-t="maroon">
+              <img src="img/theme-navy.jpg" alt="The GiveKit panel in navy." data-t="navy">
+              <img src="img/theme-green.jpg" alt="The GiveKit panel in green." data-t="green">
+              <img src="img/theme-rose.jpg" alt="The GiveKit panel in rose." data-t="rose">
+            </div>
+            <div class="swatches" role="group" aria-label="Preview colors">
+              <button type="button" class="on" data-t="maroon" style="background:#680020" aria-label="Maroon"></button>
+              <button type="button" data-t="navy" style="background:#1d3557" aria-label="Navy"></button>
+              <button type="button" data-t="green" style="background:#2f5d50" aria-label="Green"></button>
+              <button type="button" data-t="rose" style="background:#cb5e70" aria-label="Rose"></button>
+            </div>
+          </div>
+          <div class="feat-txt"><h3>Your colors, your amounts</h3><p>We match your site's colors and set the amounts, add-ons and links for your community. Change them anytime.</p></div>
+        </article>
+        <article class="feat rv">
+          <div class="feat-vis bleed"><img class="shot-b" src="img/after-mobile-2.jpg" alt="Step two on a phone, with the gift summary and the monthly offer stacked."></div>
+          <div class="feat-txt"><h3>Made for phones first</h3><p>Big tap targets, the Give button always in reach, and nothing to pinch or zoom. That's where most of your donors are.</p></div>
+        </article>
+      </div>
+    </div>
+  </section>
+
+  <section class="sec sec-white" id="compat">
+    <div class="wrap">
+      <div class="sec-head">
+        <h2>Built on what you already have.</h2>
+        <p class="lede">GiveKit is a layer on top of your ChabadOne donate page, not a replacement. The form underneath, and everything it connects to, stays exactly the same.</p>
+      </div>
+      <div class="compat">
+        <div><h3>Your payments</h3><p>Credit card, PayPal, check and donor advised funds all run through ChabadOne, just like today.</p></div>
+        <div><h3>Your records</h3><p>Every gift lands in ChabadOne with the same receipts and donor data. Nothing to reconcile.</p></div>
+        <div><h3>Your fields</h3><p>Categories and any custom fields you've added carry right over into the new layout.</p></div>
+        <div><h3>No card storage</h3><p>Card details go straight to ChabadOne's checkout. GiveKit never sees or saves them.</p></div>
+      </div>
+    </div>
+  </section>
+
+  <section class="sec" id="how">
+    <div class="wrap">
+      <div class="sec-head">
+        <h2>Live in an afternoon.</h2>
+        <p class="lede">No new platform, no new processor, no training. If you ever cancel, remove the snippet and your page is back to stock instantly.</p>
+      </div>
+      <div class="steps">
+        <div class="stepbox rv"><span class="n">1</span><h3>Paste one snippet</h3><p>Add it to your header code in ChabadOne Site Control. It only touches the donate page and its receipt.</p>
+<div class="snippet"><span class="k">&lt;script&gt;</span>
+window.DN_DONATE_CONFIG = {
+  colors: { primary: '#680020' },
+  presets: { once: [36, 50, 100, 180] }
+};
+<span class="k">&lt;/script&gt;</span></div></div>
+        <div class="stepbox rv"><span class="n">2</span><h3>We set it up for you</h3><p>Your colors, your amounts, your add-ons and links. We test the whole flow on your site before anyone sees it.</p></div>
+        <div class="stepbox rv"><span class="n">3</span><h3>We keep it working</h3><p>We check your page every night. If ChabadOne changes something that affects it, we fix it, usually before you'd notice.</p></div>
+      </div>
+    </div>
+  </section>
+
+  <section class="sec sec-white" id="pricing">
+    <div class="wrap">
+      <div class="price-grid">
+        <div class="sec-head single" style="margin:0">
+          <h2>Chai a month.</h2>
+          <p class="lede" style="margin-top:24px">One plan with everything in it. If GiveKit turns a single one-time donor into a monthly one, it has paid for itself for the year.</p>
+        </div>
+        <div class="price-card rv">
+          <div class="price-top"><div class="price-amt">$18<small>/ month</small></div><p class="price-sub">Per site. Setup included. Cancel anytime.</p></div>
+          <ul class="price-list">
+            <li><svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.6" aria-hidden="true"><path d="M4 12l5 5 11-11"/></svg><span>The full GiveKit donate flow and thank-you page</span></li>
+            <li><svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.6" aria-hidden="true"><path d="M4 12l5 5 11-11"/></svg><span>Setup in your colors, amounts and links</span></li>
+            <li><svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.6" aria-hidden="true"><path d="M4 12l5 5 11-11"/></svg><span>Nightly checks, and fixes if ChabadOne changes something</span></li>
+            <li><svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.6" aria-hidden="true"><path d="M4 12l5 5 11-11"/></svg><span>Changes and support whenever you need them</span></li>
+            <li><svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.6" aria-hidden="true"><path d="M4 12l5 5 11-11"/></svg><span>New pages as they launch</span></li>
+          </ul>
+          <div class="price-cta"><a class="btn" href="#get">Get GiveKit</a></div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <section class="sec sec-dark" id="next">
+    <div class="wrap">
+      <div class="sec-head">
+        <h2>More pages on the way.</h2>
+        <p class="lede">The donate page is the start. These are next, and they're included in your plan when they launch.</p>
+      </div>
+      <div class="road">
+        <div><span class="soon">Coming soon</span><h3>Chai Club</h3><p>A membership page for monthly givers, with a member count that grows in front of everyone.</p></div>
+        <div><span class="soon">Coming soon</span><h3>Sponsor a Shabbos</h3><p>A calendar of upcoming Shabbos dinners and Kiddushes, showing which weeks are sponsored and which are still open.</p></div>
+        <div><span class="soon">Coming soon</span><h3>Living legacy</h3><p>A simple, dignified page for including your Chabad house in a will or estate plan.</p></div>
+      </div>
+    </div>
+  </section>
+
+  <section class="sec" id="faq">
+    <div class="wrap">
+      <div class="sec-head single"><h2>Questions</h2></div>
+      <div class="faq">
+        <details><summary>Do I need a new payment processor or account?<i></i></summary><p class="a">No. Gifts go through your existing ChabadOne donate form and processor, exactly as they do now. GiveKit only changes how the page looks and guides the donor.</p></details>
+        <details><summary>Will my donations still show up in ChabadOne?<i></i></summary><p class="a">Yes. Every gift is submitted by ChabadOne's own form, so receipts, reports and donor records are the same as today. Add-ons are added to the gift and noted on the record.</p></details>
+        <details><summary>What happens if ChabadOne updates their template?<i></i></summary><p class="a">That's what the monthly plan is for. We check every GiveKit page every night, and if a change on ChabadOne's side affects yours, we fix it. If something ever fails to load, your page simply shows the standard ChabadOne form, so donations never stop.</p></details>
+        <details><summary>Is it safe? Do you see card numbers?<i></i></summary><p class="a">Card details are typed into ChabadOne's own fields and go straight to their secure checkout. GiveKit never stores or sends card information anywhere. The only things remembered are a returning donor's name and contact details, on their own device, so the form can fill itself in next time.</p></details>
+        <details><summary>Does it work with PayPal and donor advised funds?<i></i></summary><p class="a">Yes. Every payment option on your current page keeps working, including PayPal, checks and donor advised funds.</p></details>
+        <details><summary>Can I change amounts, colors or add-ons later?<i></i></summary><p class="a">Anytime. Tell us and we'll update it, or edit the settings in your snippet yourself.</p></details>
+        <details><summary>What if I want to stop?<i></i></summary><p class="a">Remove the snippet from your header code and your donate page instantly goes back to the standard ChabadOne page. No contracts.</p></details>
+      </div>
+    </div>
+  </section>
+
+  <section class="final" id="get">
+    <div class="wrap">
+      <h2>Give your donors a better way to give.</h2>
+      <div>
+        <p>Tell us your site and we'll show you GiveKit on your own donate page before you pay anything.</p>
+        <a class="btn" id="contactBtn" href="mailto:shneurnovack@gmail.com?subject=GiveKit%20for%20my%20Chabad%20house&amp;body=Hi%2C%20I%27d%20like%20GiveKit%20on%20our%20donate%20page.%0A%0AOur%20website%3A%20">Email us about GiveKit <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="square" aria-hidden="true"><path d="M5 12h14M13 6l6 6-6 6"/></svg></a>
+      </div>
+    </div>
+  </section>
+</main>
+
+<footer class="foot">
+  <div class="wrap">
+    <span><strong style="color:var(--ink)">GiveKit</strong> by Reshape Creative</span>
+    <span>GiveKit is an independent product and isn't affiliated with Chabad.org or ChabadOne.</span>
+  </div>
+</footer>
+
+<script>
+(function () {
+  /* reveal on scroll */
+  var rv = document.querySelectorAll('.rv');
+  if ('IntersectionObserver' in window) {
+    var io = new IntersectionObserver(function (es) { es.forEach(function (e) { if (e.isIntersecting) { e.target.classList.add('in'); io.unobserve(e.target); } }); }, { rootMargin: '0px 0px -8% 0px' });
+    rv.forEach(function (el) { io.observe(el); });
+  } else rv.forEach(function (el) { el.classList.add('in'); });
+
+  /* before / after */
+  var cmp = document.querySelector('.compare');
+  var range = cmp.querySelector('input');
+  function setSplit(v) { cmp.style.setProperty('--split', v + '%'); }
+  range.addEventListener('input', function () { setSplit(range.value); });
+
+  /* theme swatches */
+  var tv = document.getElementById('themeVis');
+  tv.querySelectorAll('.swatches button').forEach(function (b) {
+    b.addEventListener('click', function () {
+      var t = b.getAttribute('data-t');
+      tv.querySelectorAll('.swatches button').forEach(function (x) { x.classList.toggle('on', x === b); });
+      tv.querySelectorAll('.themes img').forEach(function (i) { i.classList.toggle('on', i.getAttribute('data-t') === t); });
+    });
+  });
+
+  /* live demo */
+  var WORDS = ['', '', 'Double', 'Triple', 'Four times', 'Five times', 'Six times', 'Seven times', 'Eight times', 'Nine times', 'Ten times', 'Eleven times', 'Twelve times'];
+  var PRESETS = { once: [36, 50, 100, 180, 500, 1000], monthly: [18, 36, 54, 72, 100, 180] };
+  var st = { f: 'once', amt: 180 };
+  var $ = function (id) { return document.getElementById(id); };
+  function fmt(n) { return '$' + (Math.round(n * 100) / 100).toLocaleString('en-US'); }
+  function chai(v) { if (!v || v % 18) return ''; var n = v / 18; if (n === 1) return 'Chai'; if (n < WORDS.length) return WORDS[n] + ' chai'; return n + ' times chai'; }
+  function chaiUp(v) { return Math.ceil(v / 18) * 18; }
+  function monthlyFor(v) { return Math.max(18, Math.round(v / 5 / 18) * 18); }
+  function notes(which) { document.querySelectorAll('.demo-note').forEach(function (n) { n.classList.toggle('is-on', n.getAttribute('data-note') === which); }); }
+  function render() {
+    var ps = $('presets');
+    ps.innerHTML = PRESETS[st.f].map(function (v) { return '<button type="button" data-v="' + v + '" class="' + (v === st.amt && !$('other').value ? 'on' : '') + '"><span class="amt">' + fmt(v) + '</span><span class="lbl">' + chai(v) + '</span></button>'; }).join('');
+    document.querySelectorAll('.freq button').forEach(function (b) { b.classList.toggle('on', b.getAttribute('data-f') === st.f); });
+    var a = st.amt, up = chaiUp(a);
+    var showRound = a > 0 && a % 18 !== 0 && up - a <= Math.max(18, a * 0.25);
+    $('round').hidden = !showRound;
+    if (showRound) $('roundTxt').textContent = 'Round up to ' + fmt(up) + '? That’s ' + chai(up).toLowerCase() + '.';
+    var c = chai(a);
+    $('impact').textContent = a ? (st.f === 'monthly' ? (c ? c + '. ' : '') + fmt(a * 12) + ' over a year.' : (c ? c + '.' : '')) : '';
+    $('goTxt').textContent = a ? 'Give ' + fmt(a) + (st.f === 'monthly' ? ' a month' : '') : 'Choose an amount';
+    $('sumAmt').textContent = fmt(a) + (st.f === 'monthly' ? ' a month' : ' once');
+    var m = monthlyFor(a);
+    $('ups').hidden = st.f === 'monthly';
+    $('upsTxt').textContent = 'Make it ' + fmt(m) + ' a month instead? That’s ' + fmt(m * 12) + ' a year.';
+    $('donTxt').textContent = 'Donate ' + fmt(a) + (st.f === 'monthly' ? ' a month' : '');
+  }
+  document.querySelector('.freq').addEventListener('click', function (e) {
+    var b = e.target.closest('button'); if (!b) return;
+    st.f = b.getAttribute('data-f'); $('other').value = '';
+    st.amt = st.f === 'monthly' ? 36 : 180; notes(st.f === 'monthly' ? 'monthly' : 'chai'); render();
+  });
+  $('presets').addEventListener('click', function (e) {
+    var b = e.target.closest('button'); if (!b) return;
+    $('other').value = ''; st.amt = Number(b.getAttribute('data-v')); notes('chai'); render();
+  });
+  $('other').addEventListener('input', function () {
+    var v = parseFloat(this.value.replace(/[^0-9.]/g, '')) || 0; st.amt = v; notes(v && v % 18 ? 'round' : 'chai'); render();
+  });
+  $('roundBtn').addEventListener('click', function () { st.amt = chaiUp(st.amt); $('other').value = st.amt; notes('round'); render(); });
+  function go(n) {
+    var from = n === 2 ? $('s1') : $('s2'), to = n === 2 ? $('s2') : $('s1');
+    from.classList.add('leave');
+    setTimeout(function () { from.hidden = true; from.classList.remove('leave'); to.hidden = false; to.classList.add('enter'); void to.offsetWidth; to.classList.remove('enter'); }, 200);
+  }
+  $('go').addEventListener('click', function () { if (!st.amt) { $('other').focus(); return; } $('toast').hidden = true; notes('upsell'); go(2); });
+  $('chg').addEventListener('click', function () { notes('chai'); go(1); });
+  $('upsBtn').addEventListener('click', function () { st.amt = monthlyFor(st.amt); st.f = 'monthly'; $('other').value = ''; render(); });
+  $('donate').addEventListener('click', function () { $('toast').hidden = false; });
+  notes('chai');
+  render();
+})();
+</script>
+</body>
+</html>
