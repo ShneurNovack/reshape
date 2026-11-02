@@ -997,7 +997,7 @@ figure { margin: 0; }
       <label>Email<input name="email" type="email" autocomplete="email" maxlength="160" required placeholder="you@yourchabad.org"></label>
       <label><span>Phone <small>optional</small></span><input name="phone" type="tel" autocomplete="tel" maxlength="40" placeholder="(555) 123-4567"></label>
       <label>Chabad house<input name="center" maxlength="140" required placeholder="Chabad of Anytown"></label>
-      <label class="full"><span>Website <small>optional</small></span><input name="website" maxlength="200" placeholder="chabadofanytown.org"></label>
+      <label class="full">Your Chabad house website<input name="website" type="url" inputmode="url" autocomplete="url" maxlength="200" required placeholder="chabadofanytown.org"></label>
       <label class="full"><span>Anything we should know? <small>optional</small></span><textarea name="message" maxlength="2000" placeholder="Questions, timing, what you'd love to see"></textarea></label>
       <div class="hp" aria-hidden="true"><label>Leave this empty<input name="company_site" tabindex="-1" autocomplete="off"></label></div>
       <p class="jf-err" role="alert" hidden></p>
@@ -1057,6 +1057,7 @@ figure { margin: 0; }
     if (!v('name')) return fail('Please add your name.', fld('name'));
     if (!/^[^\s@]+@[^\s@]+\.[^\s@]{2,}$/.test(v('email'))) return fail('Please check your email address.', fld('email'));
     if (!v('center')) return fail('Which Chabad house is this for?', fld('center'));
+    if (!/^(https?:\/\/)?[^\s/.]+(\.[^\s/.]+)+(\/\S*)?$/i.test(v('website'))) return fail('Please add your website, like chabadofanytown.org.', fld('website'));
     sendBtn.disabled = true; sendBtn.textContent = 'Sending…';
     var data = { name: v('name'), email: v('email'), phone: v('phone'), center: v('center'), website: v('website'), message: v('message'), company_site: fld('company_site').value, ms: Date.now() - opened, page: location.pathname };
     fetch(API, { method: 'POST', body: JSON.stringify(data), credentials: 'omit' })
