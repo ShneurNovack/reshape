@@ -306,6 +306,43 @@ figure { margin: 0; }
 .compat div + div { padding-left: 28px; border-left: 1px solid var(--line); }
 .compat p { color: var(--muted); font-size: 16px; }
 
+
+/* beta request form (dialog) */
+.jf { position: fixed; inset: 0; z-index: 100; display: none; align-items: flex-start; justify-content: center; padding: 48px 16px; overflow-y: auto; background: rgba(20, 19, 18, .62); }
+.jf.open { display: flex; }
+.jf-box { position: relative; width: 100%; max-width: 560px; background: var(--paper); border: 1px solid var(--ink); padding: 40px; }
+.jf-x { position: absolute; top: 14px; right: 14px; width: 44px; height: 44px; border: 0; background: transparent; color: var(--ink); cursor: pointer; display: flex; align-items: center; justify-content: center; }
+.jf-x:hover { background: var(--soft); }
+.jf h2 { font-size: 36px; letter-spacing: -0.035em; margin: 0 40px 10px 0; }
+.jf-lede { color: var(--muted); margin: 0 0 28px; font-size: 16px; }
+.jf form { display: grid; grid-template-columns: minmax(0, 1fr) minmax(0, 1fr); gap: 18px 16px; }
+.jf label { display: flex; flex-direction: column; gap: 6px; font-family: var(--display); font-size: 14px; font-weight: 700; }
+.jf label.full { grid-column: 1 / -1; }
+.jf label small { font-family: var(--body); font-size: 13px; font-weight: 400; color: var(--muted); margin-left: 4px; }
+.jf input, .jf textarea { width: 100%; box-sizing: border-box; height: 50px; padding: 0 14px; border: 1px solid var(--line); border-radius: 0; background: var(--white); color: var(--ink); font: 16px var(--body); }
+.jf textarea { height: 96px; padding: 12px 14px; resize: vertical; }
+.jf input::placeholder, .jf textarea::placeholder { color: #a39d97; }
+.jf input:focus, .jf textarea:focus { outline: 0; border-color: var(--ink); }
+.jf input.bad { border-color: var(--accent); }
+.jf .hp { position: absolute; left: -9999px; width: 1px; height: 1px; overflow: hidden; }
+.jf .btn { grid-column: 1 / -1; width: 100%; margin-top: 6px; }
+.jf .btn[disabled] { opacity: .6; cursor: default; }
+.jf-err { grid-column: 1 / -1; margin: 0; color: var(--accent); font-weight: 600; font-size: 15px; }
+.jf-alt { grid-column: 1 / -1; margin: 4px 0 0; font-size: 14px; color: var(--muted); display: flex; flex-wrap: wrap; gap: 6px 10px; align-items: center; }
+.jf-alt a { color: var(--ink); font-weight: 600; }
+.jf-copy { border: 1px solid var(--line); background: var(--white); color: var(--ink); font: 600 13px var(--display); height: 32px; padding: 0 12px; cursor: pointer; }
+.jf-copy:hover { border-color: var(--ink); }
+.jf-done { display: none; }
+.jf-box.sent form, .jf-box.sent .jf-lede, .jf-box.sent > h2 { display: none; }
+.jf-box.sent .jf-done { display: block; }
+.jf-done h2 { margin-bottom: 14px; }
+.jf-done p { color: var(--muted); margin: 0 0 24px; }
+@media (max-width: 640px) {
+  .jf { padding: 0; align-items: stretch; }
+  .jf-box { min-height: 100%; padding: 28px 20px 32px; border: 0; }
+  .jf h2 { font-size: 30px; }
+  .jf form { grid-template-columns: minmax(0, 1fr); }
+}
 /* beta */
 .beta-grid { display: grid; grid-template-columns: minmax(0, 1fr) minmax(0, 1fr); gap: 64px; align-items: start; }
 .beta-card { background: var(--white); border: 1px solid var(--ink); color: var(--ink); }
@@ -949,12 +986,93 @@ figure { margin: 0; }
   </div>
 </footer>
 
+
+<div class="jf" id="jf" role="dialog" aria-modal="true" aria-labelledby="jf-title" hidden>
+  <div class="jf-box">
+    <button class="jf-x" type="button" aria-label="Close" data-jf-close><svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="square" aria-hidden="true"><path d="M6 6l12 12M18 6L6 18"/></svg></button>
+    <h2 id="jf-title">Join the free beta</h2>
+    <p class="jf-lede">Tell us about your Chabad house. We'll get back to you within a day and set GiveKit up on your site.</p>
+    <form novalidate>
+      <label>Your name<input name="name" autocomplete="name" maxlength="100" required placeholder="Rabbi Levi Cohen"></label>
+      <label>Email<input name="email" type="email" autocomplete="email" maxlength="160" required placeholder="you@yourchabad.org"></label>
+      <label><span>Phone <small>optional</small></span><input name="phone" type="tel" autocomplete="tel" maxlength="40" placeholder="(555) 123-4567"></label>
+      <label>Chabad house<input name="center" maxlength="140" required placeholder="Chabad of Anytown"></label>
+      <label class="full"><span>Website <small>optional</small></span><input name="website" maxlength="200" placeholder="chabadofanytown.org"></label>
+      <label class="full"><span>Anything we should know? <small>optional</small></span><textarea name="message" maxlength="2000" placeholder="Questions, timing, what you'd love to see"></textarea></label>
+      <div class="hp" aria-hidden="true"><label>Leave this empty<input name="company_site" tabindex="-1" autocomplete="off"></label></div>
+      <p class="jf-err" role="alert" hidden></p>
+      <button class="btn" type="submit">Request my spot</button>
+      <p class="jf-alt">Prefer email? <a class="jf-mail" href="#">hello@reshapecreative.com</a><button type="button" class="jf-copy">Copy</button></p>
+    </form>
+    <div class="jf-done" aria-live="polite">
+      <h2>You're on the list.</h2>
+      <p class="jf-done-text">We'll email you within a day to get GiveKit set up on your site.</p>
+      <button class="btn btn-ghost" type="button" data-jf-close>Done</button>
+    </div>
+  </div>
+</div>
 <script>
 (function () {
   /* contact: one place to change the address */
   var EMAIL = 'hello@reshapecreative.com';
   var MAIL = 'mailto:' + EMAIL + '?subject=' + encodeURIComponent('GiveKit beta for our Chabad house') + '&body=' + encodeURIComponent('Hi, we’d like to join the GiveKit beta.\n\nOur website: \nName: \nPhone: ');
-  document.querySelectorAll('a.mail').forEach(function (a) { a.href = MAIL; });
+  var API = 'https://givekit.reshapecreative.com/api/v1/beta';
+
+  /* beta request form: every "Join" button opens it (works on desktop, where email links often do nothing) */
+  var jf = document.getElementById('jf'), box = jf.querySelector('.jf-box'), form = jf.querySelector('form');
+  var errEl = jf.querySelector('.jf-err'), sendBtn = form.querySelector('[type=submit]'), opened = 0, lastFocus = null;
+  jf.querySelector('.jf-mail').href = MAIL;
+  jf.querySelector('.jf-mail').textContent = EMAIL;
+  function fld(n) { return form.elements.namedItem(n); }
+  function openForm(e) {
+    if (e) e.preventDefault();
+    lastFocus = document.activeElement;
+    jf.hidden = false; jf.classList.add('open'); document.body.style.overflow = 'hidden';
+    opened = Date.now();
+    setTimeout(function () { var f = box.classList.contains('sent') ? jf.querySelector('.jf-done .btn') : fld('name'); if (f) f.focus(); }, 30);
+    try { history.replaceState(null, '', '#join'); } catch (er) {}
+  }
+  function closeForm() {
+    jf.classList.remove('open'); jf.hidden = true; document.body.style.overflow = '';
+    if (lastFocus && lastFocus.focus) lastFocus.focus();
+  }
+  document.querySelectorAll('a.mail, a[href="#join"]').forEach(function (a) { a.addEventListener('click', openForm); a.setAttribute('href', '#join'); });
+  jf.addEventListener('click', function (e) { if (e.target === jf || e.target.closest('[data-jf-close]')) closeForm(); });
+  document.addEventListener('keydown', function (e) { if (e.key === 'Escape' && jf.classList.contains('open')) closeForm(); });
+  jf.querySelector('.jf-copy').addEventListener('click', function () {
+    var b = this;
+    function done() { b.textContent = 'Copied'; setTimeout(function () { b.textContent = 'Copy'; }, 1800); }
+    if (navigator.clipboard) navigator.clipboard.writeText(EMAIL).then(done, function () { window.prompt('Copy our email:', EMAIL); });
+    else window.prompt('Copy our email:', EMAIL);
+  });
+  function fail(msg, field) {
+    errEl.textContent = msg; errEl.hidden = false;
+    if (field) { field.classList.add('bad'); field.focus(); }
+  }
+  form.addEventListener('input', function (e) { e.target.classList.remove('bad'); });
+  form.addEventListener('submit', function (e) {
+    e.preventDefault();
+    errEl.hidden = true;
+    var v = function (n) { return (fld(n).value || '').trim(); };
+    if (!v('name')) return fail('Please add your name.', fld('name'));
+    if (!/^[^\s@]+@[^\s@]+\.[^\s@]{2,}$/.test(v('email'))) return fail('Please check your email address.', fld('email'));
+    if (!v('center')) return fail('Which Chabad house is this for?', fld('center'));
+    sendBtn.disabled = true; sendBtn.textContent = 'Sending…';
+    var data = { name: v('name'), email: v('email'), phone: v('phone'), center: v('center'), website: v('website'), message: v('message'), company_site: fld('company_site').value, ms: Date.now() - opened, page: location.pathname };
+    fetch(API, { method: 'POST', body: JSON.stringify(data), credentials: 'omit' })
+      .then(function (r) { return r.json().catch(function () { return {}; }).then(function (j) { if (!r.ok || !j.ok) throw new Error(j.error || 'send failed'); }); })
+      .then(function () {
+        box.classList.add('sent');
+        jf.querySelector('.jf-done-text').textContent = 'Thanks, ' + data.name.split(' ')[0] + '. We\u2019ll email you at ' + data.email + ' within a day to get GiveKit set up on your site.';
+        jf.querySelector('.jf-done .btn').focus();
+      })
+      .catch(function (er) {
+        var m = er && er.message && !/^(send failed|Failed to fetch|Load failed|NetworkError.*|Something went wrong)$/i.test(er.message) ? er.message : 'That didn\u2019t send. Please try again.';
+        fail(m.replace(/\.?$/, '.') + ' Or email us at ' + EMAIL + '.');
+      })
+      .then(function () { sendBtn.disabled = false; sendBtn.textContent = 'Request my spot'; });
+  });
+  if (location.hash === '#join') openForm();
 
   /* reveal */
   var rv = document.querySelectorAll('.rv');
